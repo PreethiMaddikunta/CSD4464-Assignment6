@@ -30,6 +30,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(Hello.class);
+        resources.add(org.netbeans.rest.application.config.MessageRest.class);
     }
     
 }
