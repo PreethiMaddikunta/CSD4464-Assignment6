@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
+import javax.json.JsonObject;
 
 /**
  *
@@ -30,5 +31,35 @@ public class MessageController {
             }
             messages.clear();
          
+    }
+    
+    public Message getById(int id) {
+        for (Message mess : messages) {
+            if (mess.getId() == id) {
+                return mess;
+            }
+        }
+        return null;
+    }
+    
+    public JsonObject getByIdJson(int id) {
+        Message mess = getById(id);
+            return getById(id).toJson();
+        }
+    
+     public JsonObject addJson(JsonObject json) {
+        Message mess = new Message(json);
+        messages.add(mess);
+        return mess.toJson();
+    }
+     
+     public boolean deleteById(int id) {
+        Message mess = getById(id);
+        if (mess != null) {
+            messages.remove(mess);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
