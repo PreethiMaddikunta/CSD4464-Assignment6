@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.json.JsonObject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -25,6 +26,9 @@ import javax.ws.rs.core.Response;
 @Path("/messages")
 @ApplicationScoped
 public class MessageRest {
+    
+    @Inject
+    private MessageController messageController;
  
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
     
