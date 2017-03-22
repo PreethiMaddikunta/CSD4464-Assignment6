@@ -9,6 +9,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 
 /**
@@ -31,6 +34,14 @@ public class MessageController {
             }
             messages.clear();
          
+    }
+    
+    public JsonArray getAllJson() {
+        JsonArrayBuilder json = Json.createArrayBuilder();
+        for (Message mess : messages) {
+            json.add(mess.toJson());
+        }
+        return json.build();
     }
     
     public Message getById(int id) {
