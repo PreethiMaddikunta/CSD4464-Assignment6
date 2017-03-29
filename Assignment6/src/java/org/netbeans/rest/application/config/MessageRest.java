@@ -28,7 +28,7 @@ public class MessageRest {
     @Inject
     private MessageController messageController;
  
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+    private SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
     
      @GET
     @Produces("application/json")
@@ -53,7 +53,7 @@ public class MessageRest {
     @Produces("application/json")
     public Response getByDate(@PathParam("from") String fromStr, @PathParam("to") String toStr) {
         try {
-            return Response.ok(messageController.getByDateJson(sdf.parse(fromStr), sdf.parse(toStr))).build();
+            return Response.ok(messageController.getByDateJson(date.parse(fromStr), date.parse(toStr))).build();
         } catch (ParseException ex) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
