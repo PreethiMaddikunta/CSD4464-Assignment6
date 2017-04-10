@@ -22,15 +22,13 @@ public class ApplicationConfig extends Application {
         return resources;
     }
 
-    /**
-     * Do not modify addRestResourceClasses() method.
-     * It is automatically populated with
-     * all resources defined in the project.
-     * If required, comment out calling this method in getClasses().
-     */
-    private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(Hello.class);
-        resources.add(org.netbeans.rest.application.config.MessageRest.class);
+    /*
+   private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(org.netbeans.rest.application.config.message.MessageREST.class);
     }
-    
+    */
+
+    private void addRestResourceClasses(Set<Class<?>> resources) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

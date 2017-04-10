@@ -48,16 +48,7 @@ public class MessageRest {
         }
     }
 
-    @GET
-    @Path("{from}/{to}")
-    @Produces("application/json")
-    public Response getByDate(@PathParam("from") String fromStr, @PathParam("to") String toStr) {
-        try {
-            return Response.ok(messageController.getByDateJson(date.parse(fromStr), date.parse(toStr))).build();
-        } catch (ParseException ex) {
-            return Response.status(Response.Status.BAD_REQUEST).build();
-        }
-    }
+    
     
     @DELETE
     @Path("{id}")
